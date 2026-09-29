@@ -1,0 +1,10 @@
+{
+  "name": "Trợ Lý Chấm Bài Ngữ Văn",
+  "description": "Ứng dụng hỗ trợ giáo viên chụp ảnh hoặc tải bài thi viết tay, nhận dạng chữ viết tay tiếng Việt và chấm bài Ngữ văn theo đáp án hoặc tiêu chí gợi ý chuẩn xác.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
