@@ -164,7 +164,7 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             <BookOpen className="w-4 h-4 text-amber-600" />
-            1. Cấu hình
+            1. Cấu hình Đợt Chấm
           </button>
 
           <button
@@ -176,88 +176,112 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             <Layers className="w-4 h-4 text-amber-600" />
-            2. Đưa bài học sinh vào ({submissionsCount})
+            2. Quản lý bài nộp ({submissionsCount})
+          </button>
+
+          <button
+            onClick={() => onSelectTab('transcript')}
+            className={`py-2.5 px-3 border-b-2 flex items-center gap-1.5 transition-colors ${
+              activeTab === 'transcript'
+                ? 'border-amber-600 text-amber-800 bg-amber-50/40 font-black'
+                : 'border-transparent text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <FileText className="w-4 h-4" />
+            3. Nhận dạng & Tái tạo bài làm
           </button>
 
           <button
             onClick={() => onSelectTab('grading')}
-            className={`py-2.5 px-3.5 border-b-2 flex items-center gap-1.5 transition-colors ${
+            className={`py-2.5 px-3 border-b-2 flex items-center gap-1.5 transition-colors ${
               activeTab === 'grading'
-                ? 'border-amber-600 text-amber-900 bg-amber-50/80 font-black'
+                ? 'border-amber-600 text-amber-800 bg-amber-50/40 font-black'
                 : 'border-transparent text-slate-600 hover:text-slate-900'
             }`}
           >
-            <Award className="w-4 h-4 text-amber-600" />
-            3. Đưa đề, Hướng dẫn chấm & Chấm bài
+            <Award className="w-4 h-4" />
+            4. Chấm chi tiết & Duyệt điểm
           </button>
 
           <button
             onClick={() => onSelectTab('gradebook')}
-            className={`py-2.5 px-3.5 border-b-2 flex items-center gap-1.5 transition-colors ${
+            className={`py-2.5 px-3 border-b-2 flex items-center gap-1.5 transition-colors ${
               activeTab === 'gradebook'
-                ? 'border-amber-600 text-amber-900 bg-amber-50/80 font-black'
+                ? 'border-amber-600 text-amber-800 bg-amber-50/40 font-black'
                 : 'border-transparent text-slate-600 hover:text-slate-900'
             }`}
           >
-            <FileSpreadsheet className="w-4 h-4 text-amber-600" />
-            4. Bảng điểm
+            <FileSpreadsheet className="w-4 h-4" />
+            5. Bảng điểm
           </button>
         </div>
       </header>
 
       {/* MOBILE BOTTOM NAVIGATION BAR: Standard ergonomic bottom bar for thumbs */}
-      <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-lg border-t border-slate-200/90 shadow-2xl px-1.5 py-1.5 flex items-center justify-around safe-area-bottom">
+      <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-lg border-t border-slate-200/90 shadow-2xl px-1 py-1.5 flex items-center justify-around safe-area-bottom">
         <button
           onClick={() => onSelectTab('config')}
-          className={`flex-1 py-1.5 flex flex-col items-center justify-center gap-0.5 rounded-2xl transition-all ${
+          className={`flex-1 py-1 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-all ${
             activeTab === 'config'
               ? 'text-amber-800 font-black bg-amber-50/90 scale-105 shadow-xs'
               : 'text-slate-500 font-medium'
           }`}
         >
-          <BookOpen className="w-5 h-5 text-amber-600" />
-          <span className="text-[10px]">1. Cấu hình</span>
+          <BookOpen className="w-4 h-4 text-amber-600" />
+          <span className="text-[9.5px]">1. Đợt chấm</span>
         </button>
 
         <button
           onClick={() => onSelectTab('organizer')}
-          className={`flex-1 py-1.5 flex flex-col items-center justify-center gap-0.5 rounded-2xl transition-all ${
+          className={`flex-1 py-1 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-all ${
             activeTab === 'organizer'
               ? 'text-amber-800 font-black bg-amber-50/90 scale-105 shadow-xs'
               : 'text-slate-500 font-medium'
           }`}
         >
           <div className="relative">
-            <Layers className="w-5 h-5 text-amber-600" />
-            <span className="absolute -top-1 -right-2 bg-amber-600 text-white text-[9px] px-1 rounded-full font-bold">
+            <Layers className="w-4 h-4 text-amber-600" />
+            <span className="absolute -top-1 -right-2 bg-amber-600 text-white text-[8.5px] px-1 rounded-full font-bold">
               {submissionsCount}
             </span>
           </div>
-          <span className="text-[10px]">2. Bài HS</span>
+          <span className="text-[9.5px]">2. Bài nộp</span>
+        </button>
+
+        <button
+          onClick={() => onSelectTab('transcript')}
+          className={`flex-1 py-1 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-all ${
+            activeTab === 'transcript'
+              ? 'text-amber-700 font-extrabold bg-amber-50/70 scale-105'
+              : 'text-slate-500 font-medium'
+          }`}
+        >
+          <FileText className="w-4 h-4 text-amber-600" />
+          <span className="text-[9.5px]">3. Tái tạo bài</span>
         </button>
 
         <button
           onClick={() => onSelectTab('grading')}
-          className={`flex-1 py-1.5 flex flex-col items-center justify-center gap-0.5 rounded-2xl transition-all ${
+          className={`flex-1 py-1 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-all ${
             activeTab === 'grading'
-              ? 'text-amber-800 font-black bg-amber-50/90 scale-105 shadow-xs'
+              ? 'text-amber-700 font-extrabold bg-amber-50/70 scale-105'
               : 'text-slate-500 font-medium'
           }`}
         >
-          <Award className="w-5 h-5 text-amber-600" />
-          <span className="text-[10px]">3. Đề & Chấm</span>
+          <Award className="w-4 h-4 text-amber-600" />
+          <span className="text-[9.5px]">4. Chấm điểm</span>
         </button>
 
         <button
           onClick={() => onSelectTab('gradebook')}
-          className={`flex-1 py-1.5 flex flex-col items-center justify-center gap-0.5 rounded-2xl transition-all ${
+          className={`flex-1 py-1 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-all ${
             activeTab === 'gradebook'
-              ? 'text-amber-800 font-black bg-amber-50/90 scale-105 shadow-xs'
+              ? 'text-amber-700 font-extrabold bg-amber-50/70 scale-105'
               : 'text-slate-500 font-medium'
           }`}
         >
-          <FileSpreadsheet className="w-5 h-5 text-amber-600" />
-          <span className="text-[10px]">4. Bảng điểm</span>
+          <FileSpreadsheet className="w-4 h-4 text-amber-600" />
+          <span className="text-[9.5px]">5. Bảng điểm</span>
         </button>
       </nav>
     </>
